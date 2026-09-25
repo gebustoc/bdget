@@ -33,7 +33,7 @@ jobs:
 
       - name: Build/test
         run: 
-          mvn clean verify
+          mvn clean verify & 
           tree target
       
 
