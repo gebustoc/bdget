@@ -24,7 +24,7 @@ jobs:
           java-version: '17'
       
       - name: Cache Mavan Deps
-        uses: actions@cache/v3
+        uses: actions/cache@v3
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
