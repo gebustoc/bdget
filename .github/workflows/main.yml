@@ -33,8 +33,10 @@ jobs:
 
       - name: Build/test
         run: 
-          mvn clean verify & 
-          tree target
+          mvn clean verify
+      
+      - name: Show target dir
+        run: tree target
       
 
       - name: Upload JaCoCo Report
