@@ -28,15 +28,21 @@ jobs:
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-m2
 
       - name: Build/test
-        run: mvn clean verify
+        run: 
+          mvn clean verify
+          tree target
+      
 
       - name: Upload JaCoCo Report
         uses: actions/upload-artifact@v4
         with:
           name: jacoco-report
-          path: /target/site/jacoco/
+          path: /target/site/jacoco
+      
 
   build:
     name: Build Jar
